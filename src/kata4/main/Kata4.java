@@ -21,13 +21,34 @@ public class Kata4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Kata4 kata4 = new Kata4();
+        kata4.execute();
+        
         String FILENAME = "C:\\Users\\amct2\\Desktop\\asdad\\IS2\\Kata4\\dominios.txt";
-  
-        Histogram <String> histograma = MailHistogramBuilder.build(read(FILENAME));
-        
-        HistogramDisplay histo = new HistogramDisplay(histograma);
-        
+    }
+    
+    Histogram <String> histograma = new Histogram();
+    HistogramDisplay histo;
+    
+    private void execute(){
+        input();
+        process();
+        output();
+    }
+    
+    private void input(){
+      System.out.println("Introduzca la ruta del (.txt):");
+      Scanner scanner = new Scanner(System.in);
+      histograma = MailHistogramBuilder.build(read(scanner.next()));
+      
+    }
+    
+    private void output(){
         histo.execute();
+    }
+    
+    private void process(){
+        histo = new HistogramDisplay(histograma);
     }
     
 }
